@@ -1,0 +1,27 @@
+{% macro tense(x) %}
+
+CASE WHEN DATE(TO_TIMESTAMP({{x}})) < CURRENT_DATE THEN 'Past'
+WHEN TO_TIMESTAMP({{x}}) = CURRENT_DATE THEN 'Today'
+ELSE 'Future'
+END
+
+{% endmacro %}
+
+{% macro season(x) %}
+
+CASE WHEN MONTH(TO_TIMESTAMP({{x}})) IN (12,1,2) THEN 'Winter'
+WHEN MONTH(TO_TIMESTAMP({{x}})) IN (3,4,5) THEN 'Spring'
+WHEN MONTH(TO_TIMESTAMP({{x}})) IN (6,7,8) THEN 'Summer'
+ELSE 'Autumn'
+END 
+
+{% endmacro %}
+
+{% macro daytype(x) %}
+
+CASE WHEN DAYNAME(TO_TIMESTAMP({{x}})) IN ('Sat','Sun')
+THEN 'Weekend'
+ELSE 'BusinessDay'
+END 
+
+{% endmacro %}
