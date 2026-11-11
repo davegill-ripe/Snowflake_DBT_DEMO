@@ -7,3 +7,4 @@ sources:
     tables: 
     - name: BIKE_RAW
     - name: WEATHER
+    - name : BIKE_RAW_2018

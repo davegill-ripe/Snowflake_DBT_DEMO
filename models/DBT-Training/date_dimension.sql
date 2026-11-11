@@ -11,10 +11,12 @@ MONTH(TO_TIMESTAMP(STARTED_AT)) AS MONTH_STARTED_AT,
 
 {{season('STARTED_AT')}} AS SEASON
 
-from {{ source('demo', 'BIKE_RAW') }}
 
-where STARTED_AT <>'started_at'
+from {{ ref('stg_bike') }}
 
+where STARTED_AT <>'starttime'
+
+limit 100
 )
 
 select *
