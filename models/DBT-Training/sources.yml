@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: demo 
+    database: TRAINING
+    schema: DEMO_SCHEMA_DG
+    tables: 
+    - name: BIKE_RAW
+    - name: WEATHER
